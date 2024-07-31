@@ -1,4 +1,4 @@
-/*==================== SHOW MENU ====================*/
+]/*==================== SHOW MENU ====================*/
 const navMenu = document.getElementById('nav-menu'),
       navToggle = document.getElementById('nav-toggle'),
       navClose = document.getElementById('nav-close')
@@ -233,4 +233,54 @@ document.addEventListener('DOMContentLoaded', function () {
       modal.style.display = "none";
     }
   };
+});
+document.addEventListener("DOMContentLoaded", function () {
+  // 팝업 모달 요소
+  var modal = document.getElementById("scheduleModal");
+  var modalTitle = document.getElementById("modalTitle");
+  var modalDescription = document.getElementById("modalDescription");
+  var modalImage = document.getElementById("modalImage");
+  var span = document.getElementsByClassName("close")[0];
+
+  // 날짜 셀에 클릭 이벤트 추가
+  document.querySelectorAll('.date.special').forEach(function (dateCell) {
+    dateCell.addEventListener('click', function () {
+      var date = this.getAttribute('data-date');
+      // 이 부분에서 날짜에 맞는 팝업 내용을 설정합니다.
+      modalTitle.textContent = date + " 일정";
+      modalDescription.textContent = date + "에 대한 일정 설명입니다.";
+      modalImage.src = "assets/img/place" + date + ".jpg"; // 예시 이미지 소스
+
+      modal.style.display = "block";
+    });
+  });
+
+  // 화살표 버튼 클릭 이벤트 추가
+  document.querySelectorAll('.place__button').forEach(function (arrowButton) {
+    arrowButton.addEventListener('click', function () {
+      var placeCard = this.closest('.place__card');
+      var title = placeCard.querySelector('.place__title').textContent;
+      var subtitle = placeCard.querySelector('.place__subtitle').textContent;
+      var imageSrc = placeCard.querySelector('.place__img').src;
+
+      // 모달 내용 설정
+      modalTitle.textContent = title;
+      modalDescription.textContent = subtitle;
+      modalImage.src = imageSrc;
+
+      modal.style.display = "block";
+    });
+  });
+
+  // 닫기 버튼 클릭 이벤트
+  span.onclick = function () {
+    modal.style.display = "none";
+  }
+
+  // 모달 외부 클릭 시 닫기
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
 });
