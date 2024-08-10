@@ -240,6 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var modalTitle = document.getElementById("modalTitle");
   var modalDescription = document.getElementById("modalDescription");
   var modalImage = document.getElementById("modalImage");
+  var modalSpan = document.getElementById("modalSpan");
   var span = document.getElementsByClassName("close")[0];
 
   // 날짜 셀에 클릭 이벤트 추가
@@ -247,11 +248,30 @@ document.addEventListener("DOMContentLoaded", function () {
     dateCell.addEventListener('click', function () {
       var date = this.getAttribute('data-date');
       // 이 부분에서 날짜에 맞는 팝업 내용을 설정합니다.
-      modalTitle.textContent = date + " 일정";
-      modalDescription.textContent = date + "에 대한 일정 설명입니다.";
-      modalImage.src = "assets/img/place" + date + ".jpg"; // 예시 이미지 소스
+        if(date == "12") {
+            modalTitle.textContent = date + " 일정";
+            modalDescription.textContent = "뮌헨 박물관";
+            modalImage.src = "assets/img/place" + date + ".jpg"; // 예시 이미지 소스
+            modalSpan.textContent = "설명은 대충 이렇게 적으면 됨 ㅇㅇ";
 
-      modal.style.display = "block";
+            modal.style.display = "block";
+        }
+        if(date == "13") {
+            modalTitle.textContent = date + " 일정";
+            modalDescription.textContent = "김우석 병장과 만남";
+            modalImage.src = "assets/img/place" + date + ".jpg"; // 예시 이미지 소스
+            modalSpan.textContent = "김우석 기상!!!";
+
+            modal.style.display = "block";
+        }
+        if(date == "14") {
+            modalTitle.textContent = date + " 일정";
+            modalDescription.textContent = "뮌헨 박물관";
+            modalImage.src = "assets/img/place" + date + ".jpg"; // 예시 이미지 소스
+            modalSpan.textContent = "설명은 대충 이렇게 적으면 됨 ㅇㅇ";
+
+            modal.style.display = "block";
+        }
     });
   });
 
@@ -262,11 +282,13 @@ document.addEventListener("DOMContentLoaded", function () {
       var title = placeCard.querySelector('.place__title').textContent;
       var subtitle = placeCard.querySelector('.place__subtitle').textContent;
       var imageSrc = placeCard.querySelector('.place__img').src;
+      var spanData = placeCard.querySelector('.place__price').textContent;
 
       // 모달 내용 설정
       modalTitle.textContent = title;
       modalDescription.textContent = subtitle;
       modalImage.src = imageSrc;
+      modalSpan.textContent = spanData;
 
       modal.style.display = "block";
     });
