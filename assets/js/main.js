@@ -250,9 +250,9 @@ document.addEventListener("DOMContentLoaded", function () {
       // 이 부분에서 날짜에 맞는 팝업 내용을 설정합니다.
         if(date == "12") {
             modalTitle.textContent = date + " 일정";
-            modalDescription.textContent = "뮌헨 박물관";
+            modalDescription.textContent = "뮌헨 박물관, 빅투알리엔";
             modalImage.src = "assets/img/place" + date + ".jpg"; // 예시 이미지 소스
-            modalSpan.textContent = "설명은 대충 이렇게 적으면 됨 ㅇㅇ";
+            modalSpan.textContent = "뮌헨 독일 박물관 -> 컴퓨터에 역사적 발전과 함께 현재의 기술적 진보를 이해(컴퓨터 역사, 암호학, 정보통신기술, 로봇 공학 등) 빅투알리엔 -> 독일 전통 시장을 방문하여 독일 전통 식문화와 생활 방식을 보면서 독일 문화를 이해하고 시장 운영방식을 보면서 한국과 다른 점을 찾아 비교";
 
             modal.style.display = "block";
         }
